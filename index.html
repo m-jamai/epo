@@ -1,108 +1,451 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mohammed Jamai — Mechatronics Systems Engineer</title>
-<link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mohammed Jamai — Portfolio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
 </head>
 <body>
-<div class="shell">
-<aside class="side">
-<a class="logo" href="#profile" aria-label="Home"><span>M</span><i></i></a>
-<nav>
-<a class="active" href="#profile">♙ <b>PROFILE</b></a>
-<a href="#education">▤ <b>EDUCATION</b></a>
-<a href="#certifications">◇ <b>CERTIFICATIONS</b></a>
-<a href="#experience">▣ <b>EXPERIENCES</b></a>
-<a href="#projects">◇ <b>PROJECTS</b></a>
-<a href="#resources">▤ <b>RESOURCES</b></a>
-<a href="#contact">✉ <b>CONTACT</b></a>
+<!--
+    CONTENT MAP
+    Landing ...... minimal welcome card + Profile CTA
+    Profile ...... detailed profile, 4 core areas, education, certifications, languages
+    Experiences .. professional experience, internships & academic projects
+    Projects ..... six projects + complete technical skills
+    Resources .... articles, documents/tools, recommendations
+    Contact ...... email, location, LinkedIn, resume links
+    Terms ........ terms of use
+-->
+<div class="wrapper">
+<aside>
+<button aria-label="Go to Landing" class="brand-block brand-link" onclick="switchView('landing')">
+<span class="logo-btn"><img alt="MJ logo" class="logo" height="44" src="assets/img/mj-logo.png" width="44"/></span>
+</button>
+<nav aria-label="Main">
+<ul class="nav-list">
+<li class="nav-link nav-link-with-icon" data-view="profile" onclick="switchView('profile')"><span aria-hidden="true" class="nav-icon nav-icon-profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 19.5c.8-3.2 3.1-5 6.5-5s5.7 1.8 6.5 5"></path></svg></span><span>Profile</span></li>
+<li class="nav-link nav-link-with-icon" data-scroll="education" data-view="profile" onclick="switchView('profile','education')"><span aria-hidden="true" class="nav-icon nav-icon-education"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"></path><path d="M4 5.5V19"></path><path d="M8 7h8"></path><path d="M8 10h6"></path></svg></span><span>Education</span></li>
+<li class="nav-link nav-link-with-icon" data-scroll="certifications" data-view="profile" onclick="switchView('profile','certifications')"><span aria-hidden="true" class="nav-icon nav-icon-certification"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 18 5.8v5.1c0 4.1-2.5 7.5-6 9.6-3.5-2.1-6-5.5-6-9.6V5.8L12 3.5Z"></path><path d="m9.2 11.7 1.8 1.8 3.9-4"></path></svg></span><span>Certifications</span></li>
+<li class="nav-link nav-link-with-icon" data-view="experiences" onclick="switchView('experiences')"><span aria-hidden="true" class="nav-icon nav-icon-experience"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="13" rx="1.5"></rect><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"></path><path d="M4 11h16"></path><path d="M10 11v2h4v-2"></path></svg></span><span>Experiences</span></li>
+<li class="nav-link nav-link-with-icon" data-view="projects" onclick="switchView('projects')"><span aria-hidden="true" class="nav-icon nav-icon-project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5 12 4l8 3.5v9L12 20l-8-3.5v-9Z"></path><path d="M4.5 7.7 12 11l7.5-3.3"></path><path d="M12 11v9"></path></svg></span><span>Projects</span></li>
+<li class="nav-link nav-link-with-icon" data-view="resources" onclick="switchView('resources')"><span aria-hidden="true" class="nav-icon nav-icon-resource"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5.5A2.5 2.5 0 0 1 7.5 3H19v16H7.5A2.5 2.5 0 0 0 5 21V5.5Z"></path><path d="M5 5.5V19"></path><path d="M9 7h6"></path><path d="M9 10h6"></path></svg></span><span>Resources</span></li>
+<li class="nav-link" data-view="contact" onclick="switchView('contact')"><span aria-hidden="true" class="nav-icon">✉</span><span>Contact</span></li>
+</ul>
 </nav>
-<div class="sidefoot"><span>● Available for new projects</span><a href="#terms">Terms of Use</a></div>
+<div aria-hidden="true" class="sidebar-watermark">
+<img alt="" src="assets/img/mj-logo.png"/>
+</div>
+<div class="meta-block">
+<div class="availability-line">
+<span class="status-dot"></span>
+                    Available for new projects
+                </div>
+<div class="sidebar-footer-separator"></div><a class="terms-link" href="#" onclick="switchView('terms'); return false;">Terms of Use</a></div>
 </aside>
-
-<main>
-<header class="top"><span>R&amp;D ENGINEER</span><span>MECHATRONICS / PHYSICS / INNOVATION</span></header>
-
-<section id="profile" class="hero">
-<div class="hero-copy">
-<small>MECHATRONICS SYSTEMS ENGINEER</small>
-<h1>Mechatronics Systems<br>Engineer</h1>
-<h2>Powertrain · Embedded Control &amp; Model-Based Design</h2>
-<div class="blue"></div>
-<p>Building intelligent systems that connect mechanics, electronics and control — from engineering models to validated real-world performance.</p>
-<a class="button" href="#projects">VIEW MY WORK <span>→</span></a>
+<header class="mobile-header" id="mobile-header">
+<button aria-label="Go to Landing" class="logo-btn mobile-brand" onclick="switchView('landing')"><img alt="MJ logo" class="logo" height="38" src="assets/img/mj-logo.png" width="38"/>
+</button>
+<button aria-controls="mobile-nav" aria-expanded="false" class="menu-toggle" id="menu-toggle">Menu</button>
+<ul class="mobile-nav" id="mobile-nav"><li class="nav-link" data-view="profile" onclick="switchView('profile')">Profile</li><li class="nav-link" data-scroll="education" data-view="profile" onclick="switchView('profile','education')">Education</li><li class="nav-link" data-scroll="certifications" data-view="profile" onclick="switchView('profile','certifications')">Certifications</li><li class="nav-link" data-view="experiences" onclick="switchView('experiences')">Experiences</li><li class="nav-link" data-view="projects" onclick="switchView('projects')">Projects</li><li class="nav-link" data-view="resources" onclick="switchView('resources')">Resources</li><li class="nav-link" data-view="contact" onclick="switchView('contact')">Contact</li></ul>
+</header>
+<main><section class="view-section active-view" id="view-landing">
+<div class="landing-wrap">
+<div class="landing-card">
+<div class="landing-mark"><img alt="MJ logo" src="assets/img/mj-logo.png"/></div>
+<h1 class="landing-title">Mechatronics Systems Engineer</h1>
+<p class="landing-subtitle">Powertrain · Embedded Control &amp; Model-Based Design</p>
+<button class="landing-cta" onclick="switchView('profile')">Discover Profile <span aria-hidden="true">→</span></button>
 </div>
-<div class="hero-art">
-<div class="portrait"><strong>MJ</strong></div>
-<div class="coords">LAT 31.6295° N<br>LON 7.9811° W<br><br>TOULOUSE, FRANCE</div>
-<svg viewBox="0 0 400 260" aria-label="Technical motor schematic">
-<g fill="none" stroke="currentColor" stroke-width="1.2">
-<path d="M25 130h55l24-34h62l20-27h95l32 30v62l-32 30h-95l-20-27h-62l-24-34H25z"/>
-<circle cx="130" cy="130" r="31"/><circle cx="130" cy="130" r="14"/>
-<circle cx="288" cy="130" r="49"/><circle cx="288" cy="130" r="22"/>
-<path d="M160 100h50m-50 60h50M335 100l38-20m-38 80 38 20M62 72v-18m0 152v18m277-152v-18m0 152v18"/>
-</g><g fill="#1688ff"><circle cx="28" cy="72" r="3"/><circle cx="373" cy="80" r="3"/><circle cx="373" cy="210" r="3"/></g>
-</svg>
-<small class="fig">FIG. 01 — E-MOTOR / GEARBOX</small>
 </div>
 </section>
+<!-- ============================== PROFILE ============================== -->
+<section class="view-section" id="view-profile"><div class="profile-page-heading"><span class="section-label">Profile</span></div>
+<!-- Business card -->
+<div class="profile-card">
+<div class="profile-card-top">
+<div class="profile-photo">
+<img alt="Portrait of Mohammed Jamai" height="600" src="assets/img/profile.jpg" width="600"/>
+</div>
 
-<section class="about">
-<div><label>— &nbsp; ABOUT ME</label>
-<p>I’m a Mechatronics Systems Engineer focused on turning complex electrified-system challenges into models, embedded control solutions and validated engineering systems. My work sits at the intersection of powertrain, embedded development and Model-Based Design, with a strong interest in e-mobility and energy. I enjoy connecting rigorous simulation with real-world performance — and bringing ideas from model to implementation.</p></div>
-<div class="facts">
-<div><b>●</b> FOCUS <em>E-Mobility &amp; Powertrain</em></div>
-<div><b>●</b> LOCATION <em>Toulouse, France</em></div>
-<div><b>●</b> LANGUAGES <em>FR · EN · AR</em></div>
-<div><b>●</b> CURRENTLY <em>R&amp;D Engineer</em></div>
+<div class="profile-identity">
+<div class="profile-name">Mohammed Jamai</div>
+<h1 class="profile-title">Mechatronics Systems Engineer</h1>
+<p class="profile-subtitle">Powertrain, Embedded Control &amp; Model-Based Design</p>
+<p class="profile-sectors">E-Mobility · Energy · Robotics &amp; Autonomous Systems</p>
+<div class="profile-meta profile-meta-modern">
+<span>Toulouse, France</span>
+<span class="availability-line"><span class="status-dot"></span> Available for new projects</span>
+</div><div class="profile-languages-top"><span class="language-chip">FR · Fluent</span><span class="language-chip">EN · B2–C1</span><span class="language-chip">AR · Native</span></div>
+</div>
+</div>
+<p class="profile-bio">I’m a Mechatronics Systems Engineer focused on turning complex electrified-system challenges into models, embedded control solutions and validated engineering systems. My work sits at the intersection of powertrain, embedded development and Model-Based Design, with a strong interest in e-mobility and energy. I enjoy connecting rigorous simulation with real-world performance—and bringing ideas from model to implementation.</p>
+<!-- Replace the GitHub and Jupyter URLs below with your own profiles -->
+<div class="profile-links">
+<a class="profile-btn" href="https://github.com/" rel="noopener" target="_blank"><img alt="" class="brand-icon" height="18" loading="lazy" onerror="this.remove()" src="https://cdn.jsdelivr.net/npm/simple-icons@16.33.0/icons/github.svg" width="18"/><span>GitHub</span><span aria-hidden="true" class="profile-btn-arrow">↗</span></a>
+<a class="profile-btn" href="https://jupyter.org/" rel="noopener" target="_blank"><img alt="" class="brand-icon" height="18" loading="lazy" onerror="this.remove()" src="https://cdn.jsdelivr.net/npm/simple-icons@16.33.0/icons/jupyter.svg" width="18"/><span>Jupyter</span><span aria-hidden="true" class="profile-btn-arrow">↗</span></a>
+<a class="profile-btn" href="https://www.linkedin.com/in/mohammed-jamai" rel="noopener" target="_blank"><img alt="" class="brand-icon" height="18" loading="lazy" onerror="this.remove()" src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/svgs/brands/linkedin.svg" width="18"/><span>LinkedIn</span><span aria-hidden="true" class="profile-btn-arrow">↗</span></a>
+<a class="profile-btn" href="https://www.researchgate.net/" rel="noopener" target="_blank"><img alt="" class="brand-icon" height="18" loading="lazy" onerror="this.remove()" src="https://cdn.jsdelivr.net/npm/simple-icons@16.33.0/icons/researchgate.svg" width="18"/><span>ResearchGate</span><span aria-hidden="true" class="profile-btn-arrow">↗</span></a>
+<a class="profile-btn" href="https://hashnode.com/" rel="noopener" target="_blank"><img alt="" class="brand-icon" height="18" loading="lazy" onerror="this.remove()" src="https://cdn.jsdelivr.net/npm/simple-icons@16.33.0/icons/hashnode.svg" width="18"/><span>Hashnode</span><span aria-hidden="true" class="profile-btn-arrow">↗</span></a>
+</div>
+</div>
+<span class="section-label">Core Capabilities</span>
+<div class="capability-grid"><div class="capability"><div class="capability-title">Powertrain Systems</div><p class="capability-desc">Electric and hybrid powertrains, power electronics, machines and energy systems.</p></div><div class="capability"><div class="capability-title">Embedded Control</div><p class="capability-desc">Embedded C/C++, diagnostics, CAN and safety-oriented ECU development.</p></div><div class="capability"><div class="capability-title">Model-Based Design</div><p class="capability-desc">MATLAB/Simulink, plant and controller modeling, MiL and SiL workflows.</p></div><div class="capability"><div class="capability-title">Validation &amp; Safety</div><p class="capability-desc">HiL verification, requirements traceability, ISO 26262 and FMEA practices.</p></div></div>
+
+
+
+<span class="section-label" id="education">Education</span>
+<div class="catalogue-list">
+<div class="edu-item">
+<div class="edu-date">2019–2022</div>
+<div class="edu-details">
+<div class="edu-degree">ENSEEIHT, Toulouse INP</div>
+<div class="edu-school">Engineering degree, Electrical and Electronics Engineering (Electrodynamics and Advanced Mechatronics)</div>
+</div>
+</div>
+<div class="edu-item">
+<div class="edu-date">2021–2022</div>
+<div class="edu-details">
+<div class="edu-degree">Université Toulouse III Paul Sabatier</div>
+<div class="edu-school">Double degree, M2, Energy, Materials and Sustainable Development</div>
+</div>
+</div>
+<div class="edu-item">
+<div class="edu-date">2018–2019</div>
+<div class="edu-details">
+<div class="edu-degree">INSSET, Université de Picardie Jules Verne</div>
+<div class="edu-school">Licence (bachelor's), Embedded Systems</div>
+</div>
+</div>
+<div class="edu-item">
+<div class="edu-date">2016–2018</div>
+<div class="edu-details">
+<div class="edu-degree">École Supérieure de Technologie, Oujda</div>
+<div class="edu-school">Technical degree (DUT), Electronics and Industrial Computing</div>
+</div>
+</div>
+</div>
+<span class="section-label" id="certifications">Certifications</span>
+<div class="cert-grid">
+<div class="cert-item">
+<div class="cert-name">Electrical work authorization (level B1)</div>
+<div class="cert-issuer">Issuer · Year</div>
+</div>
+<div class="cert-item">
+<div class="cert-name">Programming in C++</div>
+<div class="cert-issuer">OpenClassrooms · Year</div>
+</div>
+<div class="cert-item">
+<div class="cert-name">Analyzing project risk</div>
+<div class="cert-issuer">OpenClassrooms · Year</div>
+</div>
+<div class="cert-item">
+<div class="cert-name">Linguaskill Business (B2–C1)</div>
+<div class="cert-issuer">Cambridge English · Year</div>
+</div>
+
+
+</div>
+
+
+<button class="navigation-hint" onclick="switchView('experiences')">Professional and project experience on Experiences. →</button>
+</section>
+<!-- ============================ EXPERIENCES ============================ -->
+<section class="view-section" id="view-experiences">
+<span class="section-label">Professional Experience</span>
+<div class="catalogue-list">
+<div class="catalogue-item">
+<div class="catalogue-index">01</div>
+<div class="catalogue-body">
+<div class="company-header">Vitesco Technologies (Schaeffler Group)</div>
+<div class="catalogue-meta">Oct 2023 – Sep 2025 · Model-Based Design Engineer (Toulouse, France)</div>
+<div class="experience-clients"><span class="clients-label">Clients</span><div class="client-list"><span class="client-chip">Renault</span><span class="client-chip">Mercedes-Benz</span><span class="client-chip">Ford</span></div></div>
+<div class="catalogue-desc">Modeled and validated embedded components for electric and hybrid powertrains using MiL, SiL and HiL loops. Executed rigorous physical domain parameters tracking across the HV Box 2.0/3.0 platform development sequences and engineered Ford's 48V DC-DC converter simulation models.</div>
+</div>
+<ul class="skill-tags">
+<li>MATLAB/Simulink</li><li>PLECS</li><li>dSPACE SCALEXIO</li><li>INCA</li><li>FPGA</li><li>MiL / SiL / HiL</li><li>PFC &amp; DC/DC</li><li>EMC/EMI</li><li>Git</li><li>Jira</li><li>V-model</li>
+</ul>
+</div>
+<div class="catalogue-item">
+<div class="catalogue-index">02</div>
+<div class="catalogue-body">
+<div class="company-header">Safra</div>
+<div class="catalogue-meta">Jul 2022 – Sep 2023 · Embedded Software Engineer (Albi, France)</div>
+<div class="experience-clients"><span class="clients-label">Programs</span><div class="client-list"><span class="client-chip">HYCITY</span><span class="client-chip">BUSINOVA</span></div></div>
+<div class="catalogue-desc">Developed ECU safety-critical software functions for driving, propulsion, thermal comfort, and onboard systems for hydrogen fuel cell buses. Managed precise upstream requirements traceability infrastructures in Polarion to ensure complete alignment with ISO 26262 functional safety conditions.</div>
+</div>
+<ul class="skill-tags">
+<li>C/C++</li><li>CAN bus</li><li>Cygwin</li><li>Embedded Diagnostics</li><li>ISO 26262</li><li>FMEA</li><li>Polarion</li><li>Confluence</li><li>Scrum/Kanban</li>
+</ul>
+</div>
+<div class="catalogue-item">
+<div class="catalogue-index">03</div>
+<div class="catalogue-body">
+<div class="company-header">Artelia Group</div>
+<div class="catalogue-meta">Feb 2022 – Jun 2022 · Battery Modeling Engineer (Lyon, France)</div>
+<div class="experience-clients"><span class="clients-label">Client</span><div class="client-list"><span class="client-chip">TotalEnergies</span></div></div>
+<div class="catalogue-desc">Modeled high-fidelity lithium-ion and redox-flow stationary battery system characteristics in MATLAB/Simulink. Built techno-economic CAPEX/OPEX calculation algorithms and packaged code bases into small custom Windows tools using Python.</div>
+</div>
+<ul class="skill-tags">
+<li>MATLAB/Simulink</li><li>Python</li><li>Battery aging &amp; SoH</li><li>CAPEX/OPEX</li>
+</ul>
+</div>
+</div>
+<span class="section-label">Internship &amp; Academic Projects</span>
+<div class="catalogue-list">
+<div class="catalogue-item">
+<div class="catalogue-index">04</div>
+<div class="catalogue-body">
+<div class="company-header">Kythera</div>
+<div class="catalogue-meta">Feb 2022 · Mechatronics Engineer Internship (Colomiers, France)</div>
+<div class="catalogue-desc">Designed, configured, and implemented an operational modular servomotor validation test bench. Handled industrial sensor instrumentation tasks, complex structural mechanical integration steps, and low-level custom PCB architectural design tracks.</div>
+</div>
+<ul class="skill-tags">
+<li>KiCad</li><li>LabVIEW</li><li>PCB design</li><li>Instrumentation</li>
+</ul>
+</div>
+<div class="catalogue-item">
+<div class="catalogue-index">05</div>
+<div class="catalogue-body">
+<div class="company-header">Safran &amp; ArianeGroup</div>
+<div class="catalogue-meta">Sep 2021 – Feb 2022 · Electric Turboprop Design Project (Toulouse, France)</div>
+<div class="catalogue-desc">Contributed directly to the complex multi-physics sizing framework simulations targeting an electric turboprop design intended to balance Pratt &amp; Whitney PT6 performance milestones.</div>
+</div>
+<ul class="skill-tags">
+<li>Ansys Maxwell</li><li>MATLAB</li><li>SysML</li>
+</ul>
+</div>
+<div class="catalogue-item">
+<div class="catalogue-index">06</div>
+<div class="catalogue-body">
+<div class="company-header">CNRS</div>
+<div class="catalogue-meta">Mar 2021 – Jul 2021 · Materials Testing and Instrumentation Project (France)</div>
+<div class="catalogue-desc">Designed custom experimental laboratory setups to safely control, capture, and fully characterize advanced nickel-titanium shape-memory alloy structures under mechanical loads.</div>
+</div>
+<ul class="skill-tags">
+<li>PCB design</li><li>Data acquisition</li><li>LabVIEW</li>
+</ul>
+</div>
+<div class="catalogue-item">
+<div class="catalogue-index">07</div>
+<div class="catalogue-body">
+<div class="company-header">OCP Group</div>
+<div class="catalogue-meta">Apr 2017 – Jun 2017 · Electronic Technician Internship (Youssoufia, Morocco)</div>
+<div class="catalogue-desc">Managed electrical maintenance routines, safety analysis sequences, and instrument monitoring workflows right inside an industrial phosphate calcination plant workspace.</div>
+</div>
+<ul class="skill-tags">
+<li>Electrical maintenance</li><li>Safety analysis</li>
+</ul>
+</div>
+</div>
+<div class="resume-download">
+<div>
+<div class="resume-download-title">Download Resume</div>
+<div class="resume-download-desc">PDF version, available in three languages.</div>
+</div>
+<div class="resume-download-actions">
+<a class="download-btn" download="" href="assets/resume/Mohammed_Jamai_Resume_EN.pdf">
+<span class="lang-code">EN</span><span class="lang-name">English</span>
+</a>
+<a class="download-btn" download="" href="assets/resume/Mohammed_Jamai_Resume_FR.pdf">
+<span class="lang-code">FR</span><span class="lang-name">Français</span>
+</a>
+<a class="download-btn" download="" href="assets/resume/Mohammed_Jamai_Resume_AR.pdf">
+<span class="lang-code">AR</span><span class="lang-name" lang="ar">العربية</span>
+</a>
+</div>
 </div>
 </section>
-
-<section class="caps">
-<label>— &nbsp; CORE CAPABILITIES</label>
-<div class="capgrid">
-<article><strong>⚙</strong><small>01 / 04</small><h3>POWERTRAIN SYSTEMS</h3><p>Electric and hybrid powertrains, power electronics, machines and energy systems.</p></article>
-<article><strong>⌬</strong><small>02 / 04</small><h3>EMBEDDED CONTROL</h3><p>Embedded C/C++, diagnostics, CAN and safety-oriented ECU development.</p></article>
-<article><strong>⌘</strong><small>03 / 04</small><h3>MODEL-BASED DESIGN</h3><p>MATLAB/Simulink, plant and controller modeling, MiL and SiL workflows.</p></article>
-<article><strong>♢</strong><small>04 / 04</small><h3>VALIDATION &amp; SAFETY</h3><p>HiL verification, requirements traceability, ISO 26262 and FMEA practices.</p></article>
+<!-- ============================== PROJECTS ============================== -->
+<!-- To use a real image: replace the text inside .project-image-slot with
+                 <img src="assets/img/projects/your-image.jpg" alt="..."> -->
+<section class="view-section" id="view-projects">
+<span class="section-label">Projects</span>
+<div class="project-list">
+<article class="project-row">
+<div class="project-image-slot">[ Project image ]</div>
+<div class="project-body">
+<div class="project-head"><span class="project-index">01</span><h2 class="project-title">CO₂ Emissions Calculation</h2></div>
+<p class="project-description">Tool to calculate and estimate CO₂ emissions from energy consumption and activity data, using standard emission factors, to compare scenarios and support lower-carbon decisions.</p>
+<dl class="project-facts">
+<div><dt>Domain</dt><dd>Energy &amp; sustainability</dd></div>
+<div><dt>Tools</dt><dd>Python</dd></div>
+<div><dt>Year</dt><dd>—</dd></div>
+</dl>
+<div class="project-links">
+<a class="project-action" href="#" onclick="return false;">See Project →</a>
+<a class="project-action" href="#" onclick="return false;">Code →</a>
+</div>
+</div>
+</article>
+<article class="project-row">
+<div class="project-image-slot">[ Project image ]</div>
+<div class="project-body">
+<div class="project-head"><span class="project-index">02</span><h2 class="project-title">Brushless Motor Control</h2></div>
+<p class="project-description">Development of the control system of a brushless motor: commutation logic and speed and current control loops, designed and tuned in simulation before implementation on a microcontroller.</p>
+<dl class="project-facts">
+<div><dt>Domain</dt><dd>Motor control</dd></div>
+<div><dt>Tools</dt><dd>MATLAB/Simulink, Embedded C</dd></div>
+<div><dt>Year</dt><dd>—</dd></div>
+</dl>
+<div class="project-links">
+<a class="project-action" href="#" onclick="return false;">See Project →</a>
+<a class="project-action" href="#" onclick="return false;">Code →</a>
+</div>
+</div>
+</article>
+<article class="project-row">
+<div class="project-image-slot">[ Project image ]</div>
+<div class="project-body">
+<div class="project-head"><span class="project-index">03</span><h2 class="project-title">20 A Renault Charger</h2></div>
+<p class="project-description">Development and design of a 20 A charger for Renault: power stage architecture (PFC and DC/DC conversion), simulation models and validation of the charger behavior.</p>
+<dl class="project-facts">
+<div><dt>Domain</dt><dd>Power electronics</dd></div>
+<div><dt>Tools</dt><dd>MATLAB/Simulink, PLECS</dd></div>
+<div><dt>Year</dt><dd>—</dd></div>
+</dl>
+<div class="project-links">
+<a class="project-action" href="#" onclick="return false;">See Project →</a>
+<a class="project-action" href="#" onclick="return false;">Code →</a>
+</div>
+</div>
+</article>
+<article class="project-row">
+<div class="project-image-slot">[ Project image ]</div>
+<div class="project-body">
+<div class="project-head"><span class="project-index">04</span><h2 class="project-title">PMSM FEM Analysis</h2></div>
+<p class="project-description">Finite element analysis of a permanent magnet synchronous machine (PMSM): magnetic flux distribution, back-EMF, torque and cogging torque, with post-processing of the results in MATLAB.</p>
+<dl class="project-facts">
+<div><dt>Domain</dt><dd>Electrical machines</dd></div>
+<div><dt>Tools</dt><dd>ANSYS, FEMM, MATLAB</dd></div>
+<div><dt>Year</dt><dd>—</dd></div>
+</dl>
+<div class="project-links">
+<a class="project-action" href="#" onclick="return false;">See Project →</a>
+<a class="project-action" href="#" onclick="return false;">Code →</a>
+</div>
+</div>
+</article>
+<article class="project-row">
+<div class="project-image-slot">[ Project image ]</div>
+<div class="project-body">
+<div class="project-head"><span class="project-index">05</span><h2 class="project-title">MBD Model</h2></div>
+<p class="project-description">Model-Based Design workflow: plant and controller models built in Simulink, then verified through MiL and SiL tests against the requirements.</p>
+<dl class="project-facts">
+<div><dt>Domain</dt><dd>Model-Based Design</dd></div>
+<div><dt>Tools</dt><dd>MATLAB/Simulink, MiL / SiL</dd></div>
+<div><dt>Year</dt><dd>—</dd></div>
+</dl>
+<div class="project-links">
+<a class="project-action" href="#" onclick="return false;">See Project →</a>
+<a class="project-action" href="#" onclick="return false;">Code →</a>
+</div>
+</div>
+</article>
+<article class="project-row">
+<div class="project-image-slot">[ Project image ]</div>
+<div class="project-body">
+<div class="project-head"><span class="project-index">06</span><h2 class="project-title">Capella / MBSE</h2></div>
+<p class="project-description">Model-Based Systems Engineering with Capella and the Arcadia method: operational analysis, then system, logical and physical architectures, with traceability from needs to components.</p>
+<dl class="project-facts">
+<div><dt>Domain</dt><dd>Systems engineering</dd></div>
+<div><dt>Tools</dt><dd>Capella, Arcadia</dd></div>
+<div><dt>Year</dt><dd>—</dd></div>
+</dl>
+<div class="project-links">
+<a class="project-action" href="#" onclick="return false;">See Project →</a>
+<a class="project-action" href="#" onclick="return false;">Code →</a>
+</div>
+</div>
+</article>
+</div>
+<span class="section-label section-label-spaced">Technical Skills</span>
+                <p class="section-intro">Complete technical stack used across the projects above.</p>
+<div class="spec-sheet">
+<div class="spec-row">
+<div class="spec-label">Modeling &amp; Simulation</div>
+<ul class="spec-value skill-tags">
+<li>MATLAB</li><li>Simulink</li><li>PLECS</li><li>Ansys Maxwell</li><li>FEMM</li><li>SysML</li><li>Capella</li>
+</ul>
+</div>
+<div class="spec-row">
+<div class="spec-label">Validation &amp; Test</div>
+<ul class="spec-value skill-tags">
+<li>MiL / SiL / HiL</li><li>dSPACE SCALEXIO</li><li>INCA</li><li>LabVIEW</li>
+</ul>
+</div>
+<div class="spec-row">
+<div class="spec-label">Embedded &amp; Programming</div>
+<ul class="spec-value skill-tags">
+<li>C/C++</li><li>Python</li><li>VHDL</li><li>HLS</li><li>CAN bus</li><li>Cygwin</li><li>Git</li>
+</ul>
+</div>
+<div class="spec-row">
+<div class="spec-label">Electronics &amp; Hardware</div>
+<ul class="spec-value skill-tags">
+<li>Power electronics (PFC, DC/DC)</li><li>FPGA (Quartus)</li><li>PCB design (KiCad)</li><li>PSpice</li><li>EMC/EMI</li>
+</ul>
+</div>
+<div class="spec-row">
+<div class="spec-label">Methods &amp; Standards</div>
+<ul class="spec-value skill-tags">
+<li>ISO 26262</li><li>FMEA</li><li>V-model</li><li>Polarion</li><li>Jira</li><li>Confluence</li><li>Scrum/Kanban</li>
+</ul>
+</div>
 </div>
 </section>
-
-<section id="education" class="section"><label>— &nbsp; EDUCATION</label>
-<div class="rows">
-<div><b>2019—2022</b><article><h3>ENSEEIHT, Toulouse INP</h3><p>Engineering degree, Electrical and Electronics Engineering — Electrodynamics and Advanced Mechatronics.</p></article></div>
-<div><b>2021—2022</b><article><h3>Université Toulouse III Paul Sabatier</h3><p>Double degree, M2 Energy, Materials and Sustainable Development.</p></article></div>
-<div><b>2018—2019</b><article><h3>INSSET, Université de Picardie Jules Verne</h3><p>Licence (Bachelor’s), Embedded Systems.</p></article></div>
-<div><b>2016—2018</b><article><h3>École Supérieure de Technologie, Oujda</h3><p>Technical degree (DUT), Electronics and Industrial Computing.</p></article></div>
-</div></section>
-
-<section id="certifications" class="section"><label>— &nbsp; CERTIFICATIONS</label>
-<div class="cards"><article><small>01</small><h3>Functional Safety</h3><p>Automotive functional-safety engineering fundamentals.</p></article><article><small>02</small><h3>Model-Based Engineering</h3><p>Modeling, verification and validation workflows.</p></article><article><small>03</small><h3>Systems Engineering</h3><p>Requirements, architecture and traceability principles.</p></article></div></section>
-
-<section id="experience" class="section"><label>— &nbsp; EXPERIENCES</label>
-<div class="rows">
-<div><b>2022—PRESENT</b><article><h3>R&amp;D / Mechatronics Systems Engineer</h3><em>Engineering &amp; technology environment</em><p>Developing models, embedded-control concepts and validation workflows for electrified systems, translating requirements into simulation and testable implementations.</p><div class="tags">CLIENT / PROJECT CONTEXT · <strong>E-Mobility</strong><strong>Energy</strong><strong>Hydrogen Mobility</strong></div></article></div>
-<div><b>2021—2022</b><article><h3>Model-Based Design Engineer</h3><em>Engineering project environment</em><p>Designed and validated simulation models, test loops and engineering tooling around powertrain and control systems.</p><div class="tags">CLIENT / PROJECT CONTEXT · <strong>Automotive OEM</strong><strong>Energy Systems</strong></div></article></div>
-</div></section>
-
-<section id="projects" class="section"><label>— &nbsp; PROJECTS</label>
-<div class="cards projects">
-<article><small>01</small><h3>CO₂ Emissions Calculation</h3><p>Calculation and estimation workflow for vehicle and energy-system emissions.</p><em>Python · MATLAB · Data Analysis</em></article>
-<article><small>02</small><h3>Brushless Motor Control</h3><p>Control and development of a brushless motor system.</p><em>MATLAB/Simulink · Embedded Control</em></article>
-<article><small>03</small><h3>20 A Renault Charger</h3><p>Development and design study of a 20 A charging system.</p><em>Power Electronics · Control</em></article>
-<article><small>04</small><h3>PMSM FEM Analysis</h3><p>Finite-element analysis of a permanent-magnet synchronous machine.</p><em>ANSYS · FEMM · MATLAB</em></article>
-<article><small>05</small><h3>MBD Model</h3><p>Model-Based Design and Development workflows for control engineering.</p><em>Simulink · MiL · SiL · HiL</em></article>
-<article><small>06</small><h3>Capella / MBSE</h3><p>Model-Based Systems Engineering study using system architecture and traceability.</p><em>Capella · MBSE · Requirements</em></article>
-</div>
-<div class="skills"><label>TECHNICAL SKILLS</label><span>MATLAB</span><span>SIMULINK</span><span>PYTHON</span><span>EMBEDDED C/C++</span><span>ANSYS</span><span>FEMM</span><span>CAPELLA</span><span>CAN</span><span>GIT</span></div>
+<!-- ============================== RESOURCES ============================== -->
+<!-- Content comes from js/resources.js -->
+<section class="view-section" id="view-resources">
+<span class="section-label">Resources</span>
+<p class="section-intro">What I write, what I share and what I recommend.</p>
+<div class="resource-jump" id="resource-jump"></div>
+<div id="resource-blocks"></div>
 </section>
-
-<section id="resources" class="section"><label>— &nbsp; RESOURCES</label>
-<div class="cards"><article><small>01 / NOTES</small><h3>Engineering Notes</h3><p>Technical notes on modeling, control, electrification and validation.</p></article><article><small>02 / ARTICLES</small><h3>Technical Writing</h3><p>Long-form engineering explanations and practical studies.</p></article><article><small>03 / NOTEBOOKS</small><h3>Jupyter Work</h3><p>Exploratory notebooks for data, simulation and engineering calculations.</p></article></div></section>
-
-<section id="contact" class="section contact"><label>— &nbsp; CONTACT</label><h2>Let’s build something rigorous.</h2><p>Open to engineering, R&amp;D and technical collaboration in electrification, embedded control and systems engineering.</p>
-<div class="socials"><a href="#">◉ GITHUB ↗</a><a href="#">◌ JUPYTER ↗</a><a href="#">in LINKEDIN ↗</a><a href="#">Rᴳ RESEARCHGATE ↗</a><a href="#">◆ HASHNODE ↗</a></div></section>
-<footer id="terms"><span>© 2026 Mohammed Jamai</span><span>TERMS OF USE</span></footer>
-</main></div>
-</body></html>
+<!-- ============================== CONTACT ============================== -->
+<section class="view-section" id="view-contact">
+<span class="section-label">Enquiries</span>
+<h2 class="contact-large-header">Contact</h2>
+<p class="contact-intro">Tell me about your system, your timeline, and where you're stuck. I reply within two working days.</p>
+<div class="spec-sheet">
+<div class="spec-row">
+<div class="spec-label">Email</div>
+<div class="spec-value"><a href="mailto:jamai-mohammed@hotmail.com">jamai-mohammed@hotmail.com</a></div>
+</div>
+<div class="spec-row">
+<div class="spec-label">Location</div>
+<div class="spec-value">Toulouse, France</div>
+</div>
+<div class="spec-row">
+<div class="spec-label">Network</div>
+<div class="spec-value"><a class="icon-link" href="https://www.linkedin.com/in/mohammed-jamai" rel="noopener" target="_blank"><img alt="" class="brand-icon" height="18" loading="lazy" onerror="this.remove()" src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/svgs/brands/linkedin.svg" width="18"/>LinkedIn Profile</a></div>
+</div>
+<div class="spec-row">
+<div class="spec-label">Resume</div>
+<div class="spec-value contact-resume-links">
+<a download="" href="assets/resume/Mohammed_Jamai_Resume_EN.pdf">English</a>
+<a download="" href="assets/resume/Mohammed_Jamai_Resume_FR.pdf">Français</a>
+<a download="" href="assets/resume/Mohammed_Jamai_Resume_AR.pdf" lang="ar">العربية</a>
+</div>
+</div>
+</div>
+<a class="action-mailto" href="mailto:jamai-mohammed@hotmail.com">Write me an email</a>
+</section>
+<section class="view-section" id="view-terms">
+<span class="section-label">Legal</span>
+<h2 class="contact-large-header">Terms of Use</h2>
+<div class="terms-card">
+<p>This portfolio is provided for professional and informational purposes.</p>
+<p>Content, project descriptions, documents and external links are presented as a personal professional portfolio. Please do not reproduce private or proprietary material without permission.</p>
+<p>External links lead to third-party websites and are subject to their own terms and privacy policies.</p>
+</div>
+</section></main>
+</div>
+<script src="js/resources.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
