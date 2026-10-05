@@ -7,7 +7,7 @@
 <title>Mohammed Jamai — Portfolio</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&amp;display=swap" rel="stylesheet"/>
 <link href="css/style.css" rel="stylesheet"/>
 </head>
 <body>
@@ -24,7 +24,7 @@
 <div class="wrapper">
 <aside>
 <button aria-label="Go to Landing" class="brand-block brand-link" onclick="switchView('landing')">
-<span class="logo-btn"><img alt="MJ logo" class="logo" height="44" src="assets/img/mj-logo.png" width="44"/></span>
+<span class="logo-btn"><img alt="MJ logo" class="logo" height="44" src="assets/img/mj-logo-rd.svg" width="44"/></span>
 </button>
 <nav aria-label="Main">
 <ul class="nav-list">
@@ -38,7 +38,7 @@
 </ul>
 </nav>
 <div aria-hidden="true" class="sidebar-watermark">
-<img alt="" src="assets/img/mj-logo.png"/>
+<img alt="" src="assets/img/mj-logo-rd.svg"/>
 </div>
 <div class="meta-block">
 <div class="availability-line">
@@ -48,7 +48,7 @@
 <div class="sidebar-footer-separator"></div><a class="terms-link" href="#" onclick="switchView('terms'); return false;">Terms of Use</a></div>
 </aside>
 <header class="mobile-header" id="mobile-header">
-<button aria-label="Go to Landing" class="logo-btn mobile-brand" onclick="switchView('landing')"><img alt="MJ logo" class="logo" height="38" src="assets/img/mj-logo.png" width="38"/>
+<button aria-label="Go to Landing" class="logo-btn mobile-brand" onclick="switchView('landing')"><img alt="MJ logo" class="logo" height="38" src="assets/img/mj-logo-rd.svg" width="38"/>
 </button>
 <button aria-controls="mobile-nav" aria-expanded="false" class="menu-toggle" id="menu-toggle">Menu</button>
 <ul class="mobile-nav" id="mobile-nav"><li class="nav-link" data-view="profile" onclick="switchView('profile')">Profile</li><li class="nav-link" data-scroll="education" data-view="profile" onclick="switchView('profile','education')">Education</li><li class="nav-link" data-scroll="certifications" data-view="profile" onclick="switchView('profile','certifications')">Certifications</li><li class="nav-link" data-view="experiences" onclick="switchView('experiences')">Experiences</li><li class="nav-link" data-view="projects" onclick="switchView('projects')">Projects</li><li class="nav-link" data-view="resources" onclick="switchView('resources')">Resources</li><li class="nav-link" data-view="contact" onclick="switchView('contact')">Contact</li></ul>
@@ -56,9 +56,10 @@
 <main><section class="view-section active-view" id="view-landing">
 <div class="landing-wrap">
 <div class="landing-card">
-<div class="landing-mark"><img alt="MJ logo" src="assets/img/mj-logo.png"/></div>
+<div class="landing-mark"><img alt="MJ logo" src="assets/img/mj-logo-rd.svg"/></div>
 <h1 class="landing-title">Mechatronics Systems Engineer</h1>
-<p class="landing-subtitle">Powertrain · Embedded Control &amp; Model-Based Design</p>
+<p class="landing-quote">“Build with precision. Validate with curiosity. Keep engineering human.”</p>
+<p class="landing-subtitle">Powertrain · Embedded Control · Model-Based Design</p>
 <button class="landing-cta" onclick="switchView('profile')">Discover Profile <span aria-hidden="true">→</span></button>
 </div>
 </div>
@@ -365,38 +366,15 @@
 </div>
 <span class="section-label section-label-spaced">Technical Skills</span>
                 <p class="section-intro">Complete technical stack used across the projects above.</p>
-<div class="spec-sheet">
-<div class="spec-row">
-<div class="spec-label">Modeling &amp; Simulation</div>
-<ul class="spec-value skill-tags">
-<li>MATLAB</li><li>Simulink</li><li>PLECS</li><li>Ansys Maxwell</li><li>FEMM</li><li>SysML</li><li>Capella</li>
-</ul>
+<div class="skills-matrix">
+<div class="skill-matrix-head"><span>Technical area</span><span>Skills</span><span>Self-assessed mastery</span></div>
+<div class="skill-matrix-row"><div class="spec-label">Modeling &amp; Simulation</div><div class="matrix-skills">MATLAB · Simulink · PLECS · Ansys Maxwell · FEMM · SysML · Capella</div><div class="mastery"><span class="mastery-label">Advanced</span><span class="mastery-bar"><i style="width:88%"></i></span></div></div>
+<div class="skill-matrix-row"><div class="spec-label">Validation &amp; Test</div><div class="matrix-skills">MiL / SiL / HiL · dSPACE SCALEXIO · INCA · LabVIEW</div><div class="mastery"><span class="mastery-label">Advanced</span><span class="mastery-bar"><i style="width:86%"></i></span></div></div>
+<div class="skill-matrix-row"><div class="spec-label">Embedded &amp; Programming</div><div class="matrix-skills">C/C++ · Python · VHDL · HLS · CAN bus · Cygwin · Git</div><div class="mastery"><span class="mastery-label">Advanced</span><span class="mastery-bar"><i style="width:84%"></i></span></div></div>
+<div class="skill-matrix-row"><div class="spec-label">Electronics &amp; Hardware</div><div class="matrix-skills">Power electronics · FPGA · PCB design · PSpice · EMC/EMI</div><div class="mastery"><span class="mastery-label">Proficient</span><span class="mastery-bar"><i style="width:76%"></i></span></div></div>
+<div class="skill-matrix-row"><div class="spec-label">Methods &amp; Standards</div><div class="matrix-skills">ISO 26262 · FMEA · V-model · Polarion · Jira · Confluence · Scrum/Kanban</div><div class="mastery"><span class="mastery-label">Proficient</span><span class="mastery-bar"><i style="width:78%"></i></span></div></div>
 </div>
-<div class="spec-row">
-<div class="spec-label">Validation &amp; Test</div>
-<ul class="spec-value skill-tags">
-<li>MiL / SiL / HiL</li><li>dSPACE SCALEXIO</li><li>INCA</li><li>LabVIEW</li>
-</ul>
-</div>
-<div class="spec-row">
-<div class="spec-label">Embedded &amp; Programming</div>
-<ul class="spec-value skill-tags">
-<li>C/C++</li><li>Python</li><li>VHDL</li><li>HLS</li><li>CAN bus</li><li>Cygwin</li><li>Git</li>
-</ul>
-</div>
-<div class="spec-row">
-<div class="spec-label">Electronics &amp; Hardware</div>
-<ul class="spec-value skill-tags">
-<li>Power electronics (PFC, DC/DC)</li><li>FPGA (Quartus)</li><li>PCB design (KiCad)</li><li>PSpice</li><li>EMC/EMI</li>
-</ul>
-</div>
-<div class="spec-row">
-<div class="spec-label">Methods &amp; Standards</div>
-<ul class="spec-value skill-tags">
-<li>ISO 26262</li><li>FMEA</li><li>V-model</li><li>Polarion</li><li>Jira</li><li>Confluence</li><li>Scrum/Kanban</li>
-</ul>
-</div>
-</div>
+<p class="mastery-note">Mastery levels are a practical self-assessment based on project exposure and hands-on use.</p>
 </section>
 <!-- ============================== RESOURCES ============================== -->
 <!-- Content comes from js/resources.js -->

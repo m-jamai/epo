@@ -1,51 +1,19 @@
 /*
  * RESOURCES CONTENT
- * -----------------
- * The Resources page has three categories. Add your entries in the matching
- * list below: one block { ... } per entry, separated by commas.
- * Newest entries (by date) are shown first. An empty list shows "Nothing here yet".
- *
- *   articles         Your own writing: technical articles, notes, reflections
- *   documents        Files and tools you share: PDFs, templates, cheat sheets,
- *                    scripts, Simulink models (put files in assets/resources/)
- *   recommendations  Books, courses, websites, videos you recommend
- *
- * Fields
- *   title        required
- *   kind         optional  Small label, e.g. "Article", "Note", "PDF", "Template",
- *                          "Script", "Book", "Course", "Website", "Video"
- *   date         optional  "YYYY-MM-DD"
- *   description  optional  One or two sentences
- *   text         optional  Longer text shown in full (good for notes)
- *   url          optional  External link or "assets/resources/your-file.pdf"
- *   linkLabel    optional  Text of the link (default: Read / Download / Visit)
- *   tags         optional  ["Simulink", "Battery"]
- *
- * Examples — copy one into a list and edit it:
- *
- *   { kind: "Article", title: "How I structure MiL / SiL / HiL test loops",
- *     date: "2026-10-01", description: "The method I use on powertrain projects.",
- *     url: "https://www.linkedin.com/pulse/your-article", tags: ["MBD"] },
- *
- *   { kind: "Note", title: "A short reflection", date: "2026-09-20",
- *     text: "Write your note here.\nLine breaks are kept." },
- *
- *   { kind: "Template", title: "Battery cell parameter sheet",
- *     description: "PDF I use to collect cell parameters.",
- *     url: "assets/resources/battery-parameter-sheet.pdf" },
- *
- *   { kind: "Book", title: "Book title — Author",
- *     description: "Why it is worth reading.", url: "https://example.com" },
+ * Three practical resource categories, with starter examples ready to replace
+ * with personal links/files when they are available.
  */
-
 const RESOURCES = {
     articles: [
-        // Your articles and notes
+        { kind: "Technical note", title: "From MiL to HiL: a practical validation path", date: "2026-01-15", description: "A concise engineering note on keeping model assumptions, requirements and test evidence aligned across validation stages.", tags: ["MBD", "MiL / SiL / HiL"] },
+        { kind: "Engineering note", title: "Thinking in powertrain energy flows", date: "2025-11-10", description: "A short reflection on connecting system-level energy flows with control and simulation decisions.", tags: ["Powertrain", "Energy"] }
     ],
     documents: [
-        // Your documents, templates and tools
+        { kind: "Template", title: "Powertrain model review checklist", description: "A starter checklist for reviewing model structure, assumptions, interfaces and validation evidence before a design review.", tags: ["Simulink", "Validation"] },
+        { kind: "Cheat sheet", title: "Embedded control test map", description: "A compact map of requirements, unit tests, MiL, SiL and HiL activities for embedded control development.", tags: ["Embedded", "V-model"] }
     ],
     recommendations: [
-        // Books, courses and links you recommend
+        { kind: "Tool", title: "Capella / Arcadia", description: "A useful systems-engineering environment for exploring operational, system, logical and physical architectures.", tags: ["MBSE", "Systems Engineering"] },
+        { kind: "Learning", title: "MATLAB & Simulink documentation", description: "A practical reference for deepening modeling, simulation and control-development workflows.", tags: ["MATLAB", "Simulink"] }
     ]
 };
