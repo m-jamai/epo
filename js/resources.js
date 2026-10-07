@@ -1,7 +1,15 @@
 /*
  * RESOURCES CONTENT
- * Three practical resource categories, with starter examples ready to replace
- * with personal links/files when they are available.
+ * Three categories, rendered on the Resources page. Each entry opens its own page.
+ *
+ * Fields (only "title" is required):
+ *   kind         short type, e.g. "Technical note", "Template"
+ *   title        the entry title
+ *   date         "YYYY-MM-DD", used for sorting and shown on the card
+ *   description  one or two sentences
+ *   tags         ["Simulink", "Validation"]
+ *   url          link or file path, e.g. "assets/docs/checklist.pdf" or "https://..."
+ *   linkLabel    button text; defaults to Read / Download / Visit
  */
 const RESOURCES = {
     articles: [
@@ -17,23 +25,3 @@ const RESOURCES = {
         { kind: "Learning", title: "MATLAB & Simulink documentation", description: "A practical reference for deepening modeling, simulation and control-development workflows.", tags: ["MATLAB", "Simulink"] }
     ]
 };
-
-
-function openResource(category, index) {
-  const item = (RESOURCES[category] || [])[index];
-  if (!item) return;
-  const title = document.getElementById('resource-detail-title');
-  const kind = document.getElementById('resource-detail-kind');
-  const description = document.getElementById('resource-detail-description');
-  const tags = document.getElementById('resource-detail-tags');
-  const link = document.getElementById('resource-detail-link');
-  if (title) title.textContent = item.title;
-  if (kind) kind.textContent = item.kind || 'Resource';
-  if (description) description.textContent = item.description || item.text || 'Personal resource.';
-  if (tags) tags.textContent = (item.tags || []).join(' · ');
-  if (link) {
-    if (item.url) { link.href = item.url; link.style.display = ''; link.target = /^https?:\/\//.test(item.url) ? '_blank' : ''; }
-    else { link.style.display = 'none'; }
-  }
-  switchView('resource-detail');
-}
