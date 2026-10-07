@@ -17,3 +17,23 @@ const RESOURCES = {
         { kind: "Learning", title: "MATLAB & Simulink documentation", description: "A practical reference for deepening modeling, simulation and control-development workflows.", tags: ["MATLAB", "Simulink"] }
     ]
 };
+
+
+function openResource(category, index) {
+  const item = (RESOURCES[category] || [])[index];
+  if (!item) return;
+  const title = document.getElementById('resource-detail-title');
+  const kind = document.getElementById('resource-detail-kind');
+  const description = document.getElementById('resource-detail-description');
+  const tags = document.getElementById('resource-detail-tags');
+  const link = document.getElementById('resource-detail-link');
+  if (title) title.textContent = item.title;
+  if (kind) kind.textContent = item.kind || 'Resource';
+  if (description) description.textContent = item.description || item.text || 'Personal resource.';
+  if (tags) tags.textContent = (item.tags || []).join(' · ');
+  if (link) {
+    if (item.url) { link.href = item.url; link.style.display = ''; link.target = /^https?:\/\//.test(item.url) ? '_blank' : ''; }
+    else { link.style.display = 'none'; }
+  }
+  switchView('resource-detail');
+}
