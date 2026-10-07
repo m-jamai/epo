@@ -147,7 +147,7 @@ if (copyButton) {
         const email = copyButton.dataset.email;
         try {
             await navigator.clipboard.writeText(email);
-            copyStatus.textContent = 'Copied';
+            copyStatus.textContent = 'Copied to clipboard';
         } catch (err) {
             copyStatus.textContent = 'Copy failed. Select the address instead.';
         }
@@ -232,7 +232,7 @@ function renderResources() {
 
     blocks.innerHTML = prepared.map(({ category, items }) => `
         <section class="resource-block" id="resources-${category.key}" aria-labelledby="rh-${category.key}">
-            <h2 class="section-title" id="rh-${category.key}">${category.title}</h2>
+            <h2 class="section-label" id="rh-${category.key}">${category.title}</h2>
             <p class="section-lede">${category.description}</p>
             <div class="resource-list">
                 ${items.length
@@ -259,7 +259,7 @@ function fillResourceDetail({ category, index }) {
     if (item.url) {
         const { isExternal } = linkAttributes(item, cat);
         link.href = item.url;
-        link.textContent = item.linkLabel || cat.defaultLink;
+        document.getElementById('resource-detail-link-text').textContent = item.linkLabel || cat.defaultLink;
         link.target = isExternal ? '_blank' : '';
         link.rel = isExternal ? 'noopener' : '';
         if (cat.key === 'documents' && !isExternal) link.setAttribute('download', '');

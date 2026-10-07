@@ -3,22 +3,33 @@
 Static site, no build step. Upload the folder to any static host (GitHub Pages, Netlify, OVH...) and open `index.html`.
 Opening the file straight from disk also works; browsers just skip the font preload there.
 
-## Identity
-- **Logo** (`assets/img/logo/`): the initials MJ drawn as a Simulink-style block, with an input arrow on the left
-  and an output line ending in an amber "measured response" point: a system with an input and an output.
-  - `mj-logo.svg`, `mj-logo-inverse.svg` (white, for dark backgrounds), `mj-logo-1200.png`
-  - `mj-icon.svg` / `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png`: compact icon for browser tabs and phones
-  - `og-image.png`: preview shown when the link is shared (LinkedIn, WhatsApp...)
-- The sidebar shows your name as text only, no logo. The logo appears on the landing card, the browser tab and the share image.
-- **Colors**: paper `#F6F7F9`, ink `#15202B`, signal blue `#0072BD`, amber `#EDB120`. Dark mode follows the visitor's system setting.
-- **Type**: Archivo (headings, interface) and Newsreader (reading text), self-hosted in `assets/fonts/` (SIL OFL).
-  No Google Fonts or CDN calls, so the site sets no third-party cookies.
+## Design direction: quiet technical minimalism
+Calm, precise and engineered, like a well-organized technical document. Confidence through restraint.
+
+- **Color**: soft pale-gray ground `#F4F5F5` and flat panels `#FAFBFB` (never pure white), charcoal and gray text
+  (`#2A3035` headings, `#4E565C` body, `#656D73` meta), one muted blue accent `#2D6A99` used sparingly.
+  No gradients, no shadows, no second accent. All text passes WCAG AA contrast.
+- **Type**: IBM Plex Mono for labels and headings; Archivo in a light weight for reading text. Both self-hosted
+  in `assets/fonts/` (SIL OFL), so no Google Fonts or CDN calls.
+- **Labels**: small uppercase mono with wide tracking and a short blue dash, used as annotations for every section.
+- **Structure**: hairline 1px borders, flat panels, square corners, spec-sheet blocks (label, title, short description).
+- **Buttons**: outlined, small uppercase text with a thin arrow; on hover the border and text turn blue and the arrow nudges.
+- The design tokens are at the top of `css/style.css`.
+
+## Logo
+`assets/img/logo/`: the initials MJ drawn as a schematic block with an input arrow on the left and an output line
+ending in a blue measurement point, a system with an input and an output.
+- `mj-logo.svg`, `mj-logo-inverse.svg` (white, for dark backgrounds), `mj-logo-1200.png`
+- `mj-icon.svg` / `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png`: compact icon for tabs and phones
+- `og-image.png`: preview shown when the link is shared (LinkedIn, WhatsApp...)
+
+The sidebar shows your name as text only, no logo.
 
 ## Files
 - `index.html`: all page content
-- `css/style.css`: design tokens at the top, then one section per page
+- `css/style.css`: tokens, then one section per page
 - `js/main.js`: navigation (shareable links such as `#/projects/zoe`), mobile menu, local time, copy email, resources
-- `js/resources.js`: your articles, documents and recommendations. Add an entry there and it appears with its own page.
+- `js/resources.js`: articles, documents and recommendations. Add an entry there and it appears with its own page.
 - `assets/projects/zoe/`: Renault ZOE figures and the downloadable project ZIP
 
 ## Shareable links
